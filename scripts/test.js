@@ -3,4 +3,6 @@
 write=nobody
 execute=anonymous 
   **/ 
- return request;			
+ function test(test){
+ return null; 
+}			
