@@ -80,10 +80,7 @@ mailBody += "Battery Level = " + battery_level + " V <br>" ;
 console.log( mailBody);
 
 var emailConfig = {
-  "to": "massimo@gimasi.ch",
-  "fromName": "Scriptr",
-  "subject": "SenseOra ATMO Data",
-  "body": mailBody
+
 };
 
 if (temperature > 25 ) {
