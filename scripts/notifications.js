@@ -1,8 +1,6 @@
 /** Script ACLs do not delete 
  read=nobody 
 write=nobody
-execute=anonymous 
+execute=authenticated 
   **/ 
- function test(test){
- return null; 
-}			
+ return 1;			

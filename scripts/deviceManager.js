@@ -1,6 +1,6 @@
 /** Script ACLs do not delete 
  read=nobody 
 write=nobody
-execute=anonymous 
+execute=authenticated 
   **/ 
- return request;			
+ return 1;			
