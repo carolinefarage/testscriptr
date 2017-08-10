@@ -1,0 +1,9 @@
+var http = require("http");
+var requestObj = {
+  "method":"POST",
+  "url": request.parameters.url,
+  "headers": {"Authorization":"bearer "+request.parameters.btoken+"", "Content-Type": "plain/text"},
+  "bodyString": "hello\n you"};
+var resp = http.request(requestObj);
+return JSON.parse(resp.body).response.result.length;
+
