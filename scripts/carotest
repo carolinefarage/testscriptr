@@ -1,5 +1,5 @@
 var http = require("http");
-var test= "";
+var test= "gg";
 var requestObj = {
   "method":"POST",
   "url": request.parameters.url,
