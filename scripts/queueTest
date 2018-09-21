@@ -1,0 +1,4 @@
+var bla = require("mqtt");
+bla.getInstance("dd");
+return 10;
+return apsdb.callApi("QueueScript", {"apsdb.scriptName": "doctest","otherParam":"value"} , null);
