@@ -1,0 +1,7 @@
+var http = require("http");
+var requestObject = {
+    "url" : "https://api.github.com/rate_limit",
+    "method" : "GET" // optional if GET
+}
+var response = http.request(requestObject);
+return response;
