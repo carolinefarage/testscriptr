@@ -1,1 +1,1 @@
-{"acl":{"read":"nobody","write":"nobody","execute":"device1;group:h;scriptr"},"contentType":"application/vnd.scriptr-javascript"}
+{"acl":{"read":"nobody","write":"nobody","execute":"device1;group:h;scriptr"},"contentType":"application\/vnd.scriptr-javascript"}
