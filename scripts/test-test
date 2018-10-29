@@ -1,1 +1,6 @@
-return request;
+var defaultStoreDocuments = require("document");
+// Get an instance of your custom store called "myStore"
+var myStoreDocuments = defaultStoreDocuments.getInstance("myStore");
+return 9;
+// Retrieve the document "myDocument" that is saved in "myStore"
+return myStoreDocuments.get("myDocument");
