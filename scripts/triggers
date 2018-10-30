@@ -1,0 +1,4 @@
+function getTriggerCount(scriptName) {
+    var documents = require("document");
+    return documents.query({"query":'apsST_scriptName="' + scriptName + '"', "count":"true"}).result.count;
+}
