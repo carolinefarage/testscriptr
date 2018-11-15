@@ -1,11 +1,31 @@
-//test 21, 2nd yahoo2345 Julien the great hey 4 55dd yahooo
-var http = require("http");
-var test= "gg";
-var requestObj = {
-  "method":"POST",
-  "url": request.parameters.url,
-  "headers": {"Authorization":"bearer "+request.parameters.btoken+"", "Content-Type": "plain/text"},
-  "bodyString": "hello\n you"};
-var resp = http.request(requestObj);
-return JSON.parse(resp.body).response.result.length;
+return require("store").list();
+var user = require("user");
+return user.get("caroline")
+var test = apsdb.callApi("GetUser",{"login":"caroline","apsdb.includeFieldType":"false"},{})
+return test.result.user;
+test.result.user._type=(test.result.user._type).toString();
+delete  test.result.user.id; 
+test.result.user["apsdb.update"]="true";
+return apsdb.callApi("SaveUser",test.result.user,{})
+return user.save(test.result.user);
 
+var start = Date.now();
+var doc = require("document");
+doc.create({"key":"testtimer","param1":1});
+var num = 88;
+for (var i = 0; i++; i<5){
+    num = num + i;
+    doc.save({"key":"testtimer","param1":num});
+}
+
+return (Date.now() - start);
+var pubsub = require("pubsub");
+return pubsub.publish("ee");
+//return pubsub;
+return require("document").getInstance("tedst");
+return pubsub.getTopicInstance("myChannel");
+var options = {
+  "subscribeACL": "anonymous",
+  "publishACL": "authenticated"
+}
+return pubsub.createChannel("myChannel", options);
