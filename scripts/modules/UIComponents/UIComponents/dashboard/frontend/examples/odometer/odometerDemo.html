@@ -1,0 +1,47 @@
+<html ng-app="myApp">
+
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-cookies.js"></script>
+    <script src="//cdn.rawgit.com/gdi2290/angular-websocket/v1.0.9/angular-websocket.min.js"></script>
+    <script src="/UIComponents/wsProvider.js"></script>
+    <script src="/UIComponents/httpProvider.js"></script>
+  
+    <link rel="stylesheet" href="/UIComponents/dashboard/frontend/components/odometer/odometer.car.css">
+    <script src="/UIComponents/dashboard/frontend/components/odometer/odometer.min.js"></script>
+    <script src="/UIComponents/dashboard/frontend/components/odometer/angular.odometer.min.js"></script>
+    <script src="/UIComponents/dashboard/frontend/components/odometer/odometer.js"></script>
+  
+    <script src="/UIComponents/config/scriptrTransport.js"></script>
+</head>  
+  
+<script>
+      var myApp= angular.module("myApp", ["WsClient", "HttpClient", "Odometer"])
+      angular.module('myApp').config(wssConfig);
+  
+      angular.module('myApp').controller('testCtrl', function($scope) {
+            var vm = this;
+            vm.callback = function(data){
+              console.log("data formatter");
+              return data;
+            }
+      });
+</script>
+  
+<body>
+  <div ng-controller="testCtrl as vm" >
+   <div style="padding-top: 65px;">
+        <scriptr-odometer
+          transport='wss'
+          api='UIComponents/dashboard/frontend/examples/odometer/getOdometerVal'
+          theme='car'
+          msg-tag='odometer'
+          animation='count'
+          on-format-data="vm.callback"
+          duration='1000'> 
+        </scriptr-odometer>
+    </div>
+  </div>
+</body>
+
+</html>

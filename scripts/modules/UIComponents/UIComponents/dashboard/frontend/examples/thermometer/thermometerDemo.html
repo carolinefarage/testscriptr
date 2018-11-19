@@ -1,0 +1,59 @@
+<html ng-app="myApp">
+
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-cookies.js"></script>
+    <script src="//cdn.rawgit.com/gdi2290/angular-websocket/v1.0.9/angular-websocket.min.js"></script>
+    <script src="/UIComponents/wsProvider.js"></script>
+    <script src="/UIComponents/httpProvider.js"></script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  
+    <link rel="stylesheet" href="/UIComponents/dashboard/frontend/components/thermometer/style.css">
+  
+    <script src="/UIComponents/dashboard/frontend/components/thermometer/thermometer_directive.js"></script>
+    <script src="/UIComponents/dashboard/frontend/components/thermometer/thermometer.js"></script>
+    <script src="/UIComponents/config/scriptrTransport.js"></script>
+</head>  
+  
+<script>
+      var myApp= angular.module("myApp", ["WsClient", "HttpClient", "Thermometer"])
+      angular.module('myApp').config(wssConfig);
+      angular.module('myApp').config(httpsConfig);
+  
+      angular.module('myApp').controller('testCtrl', function($scope) {
+          var vm = this;
+          vm.callback = function(data){
+            console.log("data formatter");
+            return data;
+          }
+          vm.value = 30;
+          vm.changeValue = function(){
+            vm.value = Math.floor((Math.random() * 100) + 100); 
+          }
+      });
+</script>
+  
+<body>
+  
+  <div ng-controller="testCtrl as vm" >
+      <button ng-click="vm.changeValue()" class="btn btn-default btn-sm">Change value</button>
+     <div class="centered">
+       <div class="col-xs-12 col-sm-6 mb10"> 
+           <scriptr-thermometer
+                         value="vm.value"  
+                         sectors="[-20, 0, 25, 50, 75, 100, 150, 200]"       
+                         max="200"    
+                         colors= '["#2196F3", "#000000", "#F44336", "#2196F3", "#000000", "#F44336","#2196F3", "#000000", "#F44336", "#2196F3", "#000000", "#F44336"]'        
+                         unit="°F"       
+                         height="500"
+              >
+           </scriptr-thermometer>  
+      </div>
+
+	</div>
+  </div>
+  
+</body>
+
+</html>
