@@ -1,0 +1,22 @@
+<div style="height: {{height}};" class="tg-thermometer" ng-class="size">
+	<div class="draw-a"></div>
+	<div class="draw-b"></div>
+	<div class="meter">
+		<div class="statistics">
+			<div class="percent" style="bottom: calc({{val.percent}}% - 2px);" ng-repeat="val in ticks track by $index">{{val.tick}}{{unit}}</div>
+            <div class="percent" style="bottom: calc({max}}% - 2px);">{{max}}{{unit}}</div>
+		</div>
+		<div style="height: {{percent}}%" class="mercury">
+			<div class="percent-current">{{value}}{{unit}}</div>
+			<div class="mask">
+				<div class="bg-color" style="height: calc( {{height}}px - 57px ); background: linear-gradient({{cols}});"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<style>
+    .tg-thermometer .draw-b:before {background-color: {{colors[colors.length-1]}};}
+    .tg-thermometer .draw-b:after {background-color: {{colors[colors.length-1]}};}
+</style>
