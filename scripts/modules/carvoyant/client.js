@@ -19,7 +19,7 @@ function Client(dto) {
   if (!dto) {
    
     throw {
-      "errorCode": "Invalid_Parameter",
+      "errorCode": "Invalid_Parameters",
       "errorDetail": "Client - dto cannot be null or empty"
     };
   }
