@@ -5,6 +5,7 @@ var http = require("http");
 var tokenMgr = require("./oauth2/TokenManager.js");
 
 /**
+*test
  * A generic http client that handles the communication with remote APIs
  * @class Client
  * @constructor Client
