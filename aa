@@ -1,4 +1,4 @@
-return configuration; 
+
 
     var documents = require("document");
         var result = documents.getAttachment("testmulti", "filename");
