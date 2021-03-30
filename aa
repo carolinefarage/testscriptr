@@ -1,0 +1,32 @@
+return configuration; 
+
+    var documents = require("document");
+        var result = documents.getAttachment("testmulti", "filename");
+return result;
+    var getDocument = documents.get("myCountryDocumentKey");
+
+    if(getDocument.metadata.status == "success"){
+        // Get the name of the file to be retrieved
+        var filename = getDocument.result.attachments;
+
+        // Retrieve the attachment
+        var result = documents.getAttachment("myCountryDocumentKey", filename, {"fieldName": "attachments", "versionNumber": "1"});
+
+        // As a best practice, always check the status of the previous call
+        if (result.metadata && result.metadata.status == "failure") {
+            return result.metadata.errorDetail;
+        } else { // write the file to the response
+           
+            // you can also choose to trigger the browser's save as/download feature by uncommenting the following line:
+            //response.setHeader("content-disposition", "attachment;filename=" + filename);
+     
+            response.setHeader("content-type","image/png");
+            response.setStatus(200);
+
+            // Add the CORS headers
+            response.addHeaders(configuration.crossDomainHeaders);
+
+            response.write(result);
+        }
+    }
+
