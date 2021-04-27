@@ -21,6 +21,6 @@ var img2 = request.files["img2"];
        
     };
 
-    // Persist the document myCountryDocumentKeyerte
+    // Persist the document myCountryDocumentKeyekkkk
     return documents.save(fields);
 
