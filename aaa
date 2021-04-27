@@ -1,0 +1,26 @@
+var users = require("user");
+
+// Look for users in "groupA"
+return users.query({"query2":'groups in ["groupA"]', "fields":"*", "sort":"name<string:ASC>, lastOnline<date:DESC>"});
+var document = require("document");
+
+return document.getAttachmentUrl("2997675E023ACE6A0FE122BCEA9D3D94","Screenshot from 2020-12-23 01-14-13.png", {"fieldName": "testResultFile", "versionNumber":1});
+
+
+
+var documents = require("document");
+
+var img = request.files["img"];
+var img2 = request.files["img2"];
+
+    // Define the document content
+    var fields = {
+        "key":"2997675E023ACE6A0FE122BCEA9D3D94",
+        "testResultFile": img,
+        "testResultFile": img2
+       
+    };
+
+    // Persist the document myCountryDocumentKey
+    return documents.save(fields);
+
